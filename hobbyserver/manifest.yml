@@ -1,0 +1,12 @@
+---
+applications:
+- instances: 1
+  memory: 128M
+  disk_quota: 500M
+  timeout: 180
+  name: hobbyserver
+  buildpack: sdk-for-nodejs
+  command: npm start
+  random-route: true
+  env:
+    OPTIMIZE_MEMORY: true
