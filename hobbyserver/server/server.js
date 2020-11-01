@@ -1,20 +1,31 @@
 // import dependencies and initialize express
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const healthRoutes = require('./routes/health-route');
 const swaggerRoutes = require('./routes/swagger-route');
+const usersRouter = require('./routes/users');
 
 const app = express();
 
+mongoose.connect(process.env.DBCONN, { useNewUrlParser: true, useCreateIndex: true }
+);
+const connection = mongoose.connection;
+connection.once('open', () => {
+  console.log("MongoDB database connection established successfully");
+})
+
 // enable parsing of http request body
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // routes and api calls
 app.use('/health', healthRoutes);
 app.use('/swagger', swaggerRoutes);
+app.use('/users', usersRouter);
 
 // default path to serve up index.html (single page application)
 app.all('', (req, res) => {
