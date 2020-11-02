@@ -25,8 +25,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // routes and api calls
-app.use('/health', healthRoutes);
-app.use('/swagger', swaggerRoutes);
 app.use('/users', usersRouter);
 
 // default path to serve up index.html (single page application)

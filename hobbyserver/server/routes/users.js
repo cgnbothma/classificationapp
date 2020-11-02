@@ -9,7 +9,7 @@ router.route('/').get((req, res) => {
 
 router.route('/create').post((req, res) => {
   console.log(req.body['username']);
-  const name = req.body['username'];
+  var name = req.body['username'];
 
   const newUser = new User({
     username: name
@@ -26,7 +26,8 @@ router.route('/:id').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').delete((req, res) => {
+router.route('/delete/:id').delete((req, res) => {
+  console.log("delete");
   User.findByIdAndDelete(req.params.id)
     .then(() => res.json('User deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
