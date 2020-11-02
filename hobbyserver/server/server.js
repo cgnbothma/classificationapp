@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const healthRoutes = require('./routes/health-route');
 const swaggerRoutes = require('./routes/swagger-route');
@@ -21,6 +22,7 @@ connection.once('open', () => {
 // enable parsing of http request body
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 // routes and api calls
 app.use('/health', healthRoutes);
