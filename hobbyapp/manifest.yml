@@ -1,0 +1,7 @@
+applications:
+- name: hobbyapp
+  instances: 1
+  memory: 128M
+  buildpack: staticfile_buildpack
+  path: ./dist/hobbyapp
+  disk_quota: 500M
