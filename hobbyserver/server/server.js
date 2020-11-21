@@ -17,11 +17,9 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 
-// enable parsing of http request body
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 
 // routes and api calls
 app.use('/users', usersRouter);
@@ -32,7 +30,7 @@ app.all('', (req, res) => {
 });
 
 // start node server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log(`App UI available http://localhost:${port}`);
   console.log(`Swagger UI available http://localhost:${port}/swagger/api-docs`);
