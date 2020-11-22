@@ -3,9 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddUserComponent } from './components/users/add-user/add-user.component';
 import { ViewUsersComponent } from './components/users/view-users/view-users.component';
-
+import { AddUserComponent } from './components/users/add-user/add-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 

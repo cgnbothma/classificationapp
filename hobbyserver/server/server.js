@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
+import fileupload from 'express-fileupload';
 
 const usersRouter = require('./routes/users');
 
@@ -23,7 +24,7 @@ app.use(bodyParser.json());
 
 // routes and api calls
 app.use('/users', usersRouter);
-
+app.use('/files', filesRouter);
 // default path to serve up index.html (single page application)
 app.all('', (req, res) => {
   res.status(200).sendFile(path.join(__dirname, '../public', 'index.html'));

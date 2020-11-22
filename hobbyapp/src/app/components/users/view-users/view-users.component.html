@@ -10,19 +10,8 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"><button mat-raised-button color="primary" (click)="saveUser()">Add User</button></tr>
       </table>
     </div>
-    <!-- <table mdbTable>
-    <h4>Users List</h4>
-      <thead>
-        <tr>
-          <th *ngFor="let head of headElements" scope="col">{{head}} </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <th scope="row">{{users.name}}</th>
-          <td>{{ users.name }}</td>
-        </tr>
-      </tbody>
-    </table> -->
-  <!-- </div> -->
+    <div>
+      <button mat-raised-button color="primary" (click)="fileUpload()">Upload File</button>
+    </div>
+  </div>
 </div>
