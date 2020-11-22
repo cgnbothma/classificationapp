@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import { HttpEventType, HttpErrorResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { UploadService } from  '../../services/fileupload.service';
+import { FileUploadService } from  '../../../services/fileupload.service';
 
 @Component({
   selector: 'app-upload',
@@ -16,9 +16,9 @@ export class UploadComponent implements OnInit {
   shortLink: string = "";
   loading: boolean = false;
 
-  const formData = new FormData();
+  public formData = new FormData();
 
-  constructor(private uploadService: UploadService) { }
+  constructor(private uploadService: FileUploadService) { }
 
   ngOnInit(): void {
   }
@@ -52,5 +52,17 @@ export class UploadComponent implements OnInit {
     this.files.forEach(file => {
       this.uploadFile(file);
     });
+  }
+
+  onClick() {
+    const fileUpload = this.fileUpload.nativeElement;fileUpload.onchange = () => {
+    for (let index = 0; index < fileUpload.files.length; index++)
+    {
+     const file = fileUpload.files[index];
+     this.files.push({ data: file, inProgress: false, progress: 0});
+    }
+      this.uploadFiles();
+    };
+    fileUpload.click();
   }
 }

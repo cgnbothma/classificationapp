@@ -7,13 +7,14 @@ import { map } from 'rxjs/operators';
 })
 export class FileUploadService {
 
-  baseApiUrl = "https://file.io"
+  SERVER_URL = "https://file.io";
 
-  constructor(private http:HttpClient) { }
+  constructor(private httpClient:HttpClient) { }
 
   upload(formData) {
     return this.httpClient.post<any>(this.SERVER_URL, formData, {
-    reportProgress: true,
-    observe: 'events'
+      reportProgress: true,
+      observe: 'events'
+    });
   }
 }
