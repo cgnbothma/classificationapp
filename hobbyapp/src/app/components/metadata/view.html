@@ -1,0 +1,37 @@
+<div class="col-md-6">
+  <div class="col-md-6">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> File Name </th>
+          <td mat-cell *matCellDef="let row "> {{ row.filename }} </td>
+        </ng-container>
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> File Type </th>
+          <td mat-cell *matCellDef="let row "> {{ row.filetype }} </td>
+        </ng-container>
+        <ng-container matColumnDef="location">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> File Type </th>
+          <td mat-cell *matCellDef="let row "> {{ row.location }} </td>
+        </ng-container>
+        <ng-container matColumnDef="tabname">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> File Type </th>
+          <td mat-cell *matCellDef="let row "> {{ row.tabname }} </td>
+        </ng-container>
+        <ng-container matColumnDef="columnname">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> File Type </th>
+          <td mat-cell *matCellDef="let row "> {{ row.columnname }} </td>
+        </ng-container>
+        <ng-container matColumnDef="datacategory">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> File Type </th>
+          <td mat-cell *matCellDef="let row "> {{ row.datacategory }} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"><button mat-raised-button color="primary" (click)="saveUser()">Add User</button></tr>
+      </table>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click)="fileUpload()">Upload File</button>
+    </div>
+  </div>
+</div>
